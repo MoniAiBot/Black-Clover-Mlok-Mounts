@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Black Clover 3D Prints | M-LOK Wall Mounts</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0d0d;
+            color: #c4c4c4;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-bottom: 3px solid #4a9ebb;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a9ebb;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-family: 'Impact', sans-serif;
+        }
+        .logo span { color: #fff; }
+        .tagline {
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .motto {
+            background: #1a1a0a;
+            border-left: 4px solid #4a9ebb;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero {
+            background: 
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23222" stroke-width="1"/></pattern></defs><rect width="60" height="60" fill="%23111"/><rect width="60" height="60" fill="url(%23grid)"/></svg>');
+            padding: 100px 40px;
+            text-align: center;
+            border-bottom: 2px solid #4a9ebb;
+        }
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-family: 'Impact', sans-serif;
+            color: #fff;
+        }
+        .hero h1 span { color: #4a9ebb; }
+        .hero .subtitle {
+            font-size: 18px;
+            color: #4a9ebb;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #888;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            letter-spacing: 1px;
+        }
+        .cta {
+            display: inline-block;
+            background: #4a9ebb;
+            color: #fff;
+            padding: 18px 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border: 2px solid #4a9ebb;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .cta:hover {
+            background: transparent;
+            color: #4a9ebb;
+            box-shadow: 0 0 20px rgba(74, 158, 187, 0.3);
+        }
+        .built-by {
+            margin-top: 30px;
+            padding: 15px 25px;
+            background: rgba(74, 158, 187, 0.1);
+            border: 1px solid #4a9ebb;
+            display: inline-block;
+            font-size: 13px;
+            color: #4a9ebb;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .built-by span { color: #fff; }
+        .section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #4a9ebb;
+            font-family: 'Impact', sans-serif;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #4a9ebb;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            border-color: #4a9ebb;
+            transform: translateY(-5px);
+        }
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+        .product-icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+            filter: grayscale(20%);
+        }
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .product-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .price {
+            font-size: 28px;
+            color: #4a9ebb;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .colors-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .colors {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .color-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 3px;
+            border: 2px solid #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .color-swatch:hover {
+            border-color: #4a9ebb;
+            transform: scale(1.1);
+        }
+        .features {
+            background: #0a0a0a;
+            padding: 70px 40px;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .feature {
+            text-align: center;
+            padding: 25px;
+            background: #111;
+            border: 1px solid #222;
+        }
+        .feature-icon {
+            font-size: 28px;
+            color: #4a9ebb;
+            margin-bottom: 12px;
+        }
+        .feature h3 {
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            color: #fff;
+        }
+        .feature p {
+            color: #555;
+            font-size: 13px;
+        }
+        .color-options {
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+            padding: 60px 40px;
+            border-top: 2px solid #4a9ebb;
+        }
+        .color-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .color-option {
+            text-align: center;
+        }
+        .color-option .swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            border: 2px solid #333;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+        .color-option .swatch:hover {
+            border-color: #4a9ebb;
+            box-shadow: 0 0 15px rgba(74, 158, 187, 0.3);
+        }
+        .color-option .name {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+        }
+        .color-option .hex {
+            font-size: 10px;
+            color: #444;
+            font-family: 'Courier New', monospace;
+        }
+        .contact {
+            background: #0d0d0d;
+            padding: 80px 40px;
+            text-align: center;
+            border-top: 3px solid #4a9ebb;
+        }
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-family: 'Impact', sans-serif;
+            color: #fff;
+        }
+        .contact .accent {
+            color: #4a9ebb;
+        }
+        .contact p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .contact .note {
+            color: #4a9ebb;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+        .footer {
+            background: #050505;
+            padding: 25px;
+            text-align: center;
+            color: #333;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .footer span { color: #4a9ebb; }
+        @media (max-width: 600px) {
+            .header { padding: 15px 20px; flex-direction: column; gap: 10px; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 32px; letter-spacing: 4px; }
+            .section { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">⚔ BLACK <span>CLOVER</span></div>
+        <div class="tagline">Tactical 3D Printed Solutions</div>
+    </div>
+    
+    <div class="motto">「 Printed by Hand • Built for the Field 」</div>
+
+    <div class="hero">
+        <div class="subtitle">[ M-LOK Compatible ]</div>
+        <h1>M-LOK <span>Wall Mounts</span></h1>
+        <p>Hand-printed on demand. Each mount is personally crafted by me and shipped directly to you. Pick your color — we match your rig.</p>
+        <a href="#contact" class="cta">Get Yours</a>
+        <div class="built-by">Profile <span>Hand-Printed</span> by the Owner</div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Gear Mounts</h2>
+        <div class="section-subtitle">M-LOK Compatible • Quick-Detach • Rugged</div>
+        <div class="products">
+            <div class="product-card">
+                <div class="product-icon">Target</div>
+                <h3>MLOK Wall Mount</h3>
+                <p>Secure wall mount for M-LOK accessories. QD design lets you rip it off fast. Printed in durable PLA+.</p>
+                <div class="price">$25</div>
+                <div class="colors-label">Available Colors ↓</div>
+                <div class="colors">
+                    <div class="color-swatch" style="background:#1a1a1a" title="Black"></div>
+                    <div class="color-swatch" style="background:#4a3c2a" title="Coyote Brown"></div>
+                    <div class="color-swatch" style="background:#3a3525" title="FDE"></div>
+                    <div class="color-swatch" style="background:#1a1a2e" title="Navy"></div>
+                    <div class="color-swatch" style="background:#2a1a1a" title="Burgundy"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">Tools</div>
+                <h3>Custom Work</h3>
+                <p>Need a specific mount or accessory? I print what you need. Hit us up — let's build it.</p>
+                <div class="price">Quote</div>
+                <div class="colors-label">Any Color • Any Design</div>
+                <div class="colors">
+                    <div class="color-swatch" style="background:linear-gradient(135deg,#111,#444)" title="Custom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="color-options">
+        <h2 class="section-title">Color Library</h2>
+        <div class="section-subtitle">Pick Your Shade • We Print It</div>
+        <div class="color-grid">
+            <div class="color-option">
+                <div class="swatch" style="background:#1a1a1a"></div>
+                <div class="name">Black</div>
+                <div class="hex">#1a1a1a</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#4a3c2a"></div>
+                <div class="name">Coyote Brown</div>
+                <div class="hex">#4a3c2a</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#3a3525"></div>
+                <div class="name">FDE</div>
+                <div class="hex">#3a3525</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#1a1a2e"></div>
+                <div class="name">Navy</div>
+                <div class="hex">#1a1a2e</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#2a1a1a"></div>
+                <div class="name">Burgundy</div>
+                <div class="hex">#2a1a1a</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#3a3a3a"></div>
+                <div class="name">Gray</div>
+                <div class="hex">#3a3a3a</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#2a2a20"></div>
+                <div class="name">Wolf Gray</div>
+                <div class="hex">#2a2a20</div>
+            </div>
+            <div class="color-option">
+                <div class="swatch" style="background:#1a2a2a"></div>
+                <div class="name">Teal</div>
+                <div class="hex">#1a2a2a</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <h3>Hand-Printed</h3>
+                <p>Each unit printed to order by yours truly</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">Design</div>
+                <h3>Your Color</h3>
+                <p>8 colors in stock. Custom blends available.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">Shield</div>
+                <h3>PLA+ Built</h3>
+                <p>Tougher than standard PLA. Impact resistant.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Turn</h3>
+                <p>Prints ship within 2-3 business days</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">US</div>
+                <h3>USA Made</h3>
+                <p>Printed and shipped from the States</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">Chat</div>
+                <h3>Direct</h3>
+                <p>You talk to the guy who prints your gear</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Let's <span class="accent">Build</span></h2>
+        <p>Ready to equip? Slide into our messages.</p>
+        <p>Tell me what you need — mount type, color, qty.</p>
+        <a href="#" class="cta">Message for Order</a>
+        <div class="note">「 I personally print & ship every order 」</div>
+    </div>
+
+    <div class="footer">
+        ⚔ BLACK CLOVER 3D PRINTS <span>//</span> TACTICAL GEAR
+    </div>
+</body>
+</html>
